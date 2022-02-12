@@ -1,4 +1,3 @@
-import "./App.css";
 import Nav from "./components/Nav";
 import { Lyrics } from "./components/Lyrics";
 import Search from "./components/Search";
