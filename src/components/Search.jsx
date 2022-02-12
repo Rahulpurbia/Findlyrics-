@@ -13,8 +13,8 @@ const Search = () => {
         setinputval(e.target.value);
     }
     const Search=()=>{
-
-        setsongName(inputval);
+const song=inputval.toString().trim();
+        setsongName(song);
         setinputval("")
 
     }
@@ -22,7 +22,7 @@ const Search = () => {
     <>
     
     <Box sx={{my:2 , display:'flex' ,justifyContent:'center'}}>
-    <TextField id="outlined-basic"  label="Enter Song Name" variant="outlined" value={inputval} onChange={handleChange}   />
+    <TextField id="outlined-basic"  label="Enter Song or Artist Name" variant="outlined" value={inputval} onChange={handleChange}   />
     <Button variant="contained" color="primary" onClick={Search} >Search</Button>
     </Box>
  <Results/>

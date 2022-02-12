@@ -37,9 +37,7 @@ findLyrics(songname,artistname);
         image={value.album.cover_medium}
         alt="album cover"
        
-     max
-
-       height="auto"
+            height="auto"
       />
       <CardContent>
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
@@ -55,7 +53,7 @@ findLyrics(songname,artistname);
       </CardActions>
     </Card>
             )
-        })):<div>Enter a songname to find lyrics</div>
+        })):<div>Enter a song or artist to find lyrics</div>
     }
 
 

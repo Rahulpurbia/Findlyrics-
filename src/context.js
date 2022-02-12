@@ -4,7 +4,7 @@ export const dataContext = createContext();
 export const Context = (props) => {
   const [Data, setData] = useState({});
 
-  const [Lyrics, setLyrics] = useState("Sorry! No Lyrics for this one.");
+  const [Lyrics, setLyrics] = useState(" Sorry! No Lyrics for this one.");
   const [songName, setsongName] = useState("");
   const getSuggestion = () => {
     if (songName === "") {
@@ -37,8 +37,17 @@ export const Context = (props) => {
     axios
       .get(`${baselink}/v1/${artistname}/${gaananame}`)
       .then((response) => {
-        setLyrics(response.data.lyrics);
-        console.log(response.data.lyrics);
+        let lyrics = response.data.lyrics;
+        let newdata = lyrics.split("\n").map((str) => (
+          <>
+            {str}
+            <br />
+          </>
+        ));
+        console.log(newdata);
+        setLyrics(newdata);
+
+        console.log(typeof lyrics);
       })
       .catch((error) => {
         setLyrics("No lyrics for this one ");
