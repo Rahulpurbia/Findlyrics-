@@ -30,14 +30,15 @@ findLyrics(songname,artistname);
      Data.data?(
         Data.data.data.map((value)=>{
             return(
-<Card sx={{ minWidth: 275,m:"10px" }} key={value.id}>
+<Card sx={{ minWidth: 275, maxWidth:275,m:"10px" }} key={value.id}>
 <CardMedia
         component="img"
-        height="140"
-        image={value.album.cover}
-        alt="green iguana"
+        // height="140"
+        image={value.album.cover_medium}
+        alt="album cover"
        
-       maxwidth="80%"
+     max
+
        height="auto"
       />
       <CardContent>
