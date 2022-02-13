@@ -3,9 +3,12 @@ import axios from "axios";
 export const dataContext = createContext();
 export const Context = (props) => {
   const [Data, setData] = useState({});
-
   const [Lyrics, setLyrics] = useState(" Sorry! No Lyrics for this one.");
+
   const [songName, setsongName] = useState("");
+  // *************************************************
+  //getting suggestions for song or artist name
+
   const getSuggestion = () => {
     if (songName === "") {
       return;
@@ -16,7 +19,6 @@ export const Context = (props) => {
       .then((response) => {
         setData(response);
         setsongName("");
-        console.log(response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -27,6 +29,7 @@ export const Context = (props) => {
     getSuggestion();
   }, [songName]);
   // ***********************************************
+  //searching and getting lyrics for chosen option
 
   const findLyrics = (gaananame, artistname) => {
     if (!gaananame || !artistname) {
@@ -38,22 +41,22 @@ export const Context = (props) => {
       .get(`${baselink}/v1/${artistname}/${gaananame}`)
       .then((response) => {
         let lyrics = response.data.lyrics;
-        let newdata = lyrics.split("\n").map((str) => (
-          <>
+        let newdata = lyrics.split("\n").map((str, index) => (
+          <span key={index}>
             {str}
             <br />
-          </>
+          </span>
         ));
-        console.log(newdata);
-        setLyrics(newdata);
 
-        console.log(typeof lyrics);
+        setLyrics(newdata);
       })
       .catch((error) => {
-        setLyrics("No lyrics for this one ");
-        console.log("No lyrics for this one sorry");
+        setLyrics(
+          <span style={{ fontSize: "7vmin" }}>
+            Sorry! No lyrics for this one{" "}
+          </span>
+        );
       });
-    // console.log("inside findlyrics");
   };
 
   return (
@@ -62,7 +65,6 @@ export const Context = (props) => {
         value={[
           [Data, setData],
           [songName, setsongName],
-
           [Lyrics, setLyrics],
           findLyrics,
         ]}

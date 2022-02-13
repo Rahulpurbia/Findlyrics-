@@ -2,7 +2,6 @@ import Nav from "./components/Nav";
 import * as React from "react";
 import { Lyrics } from "./components/Lyrics";
 import Search from "./components/Search";
-import Results from "./components/Results";
 import { Context } from "./context";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
