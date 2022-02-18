@@ -40,6 +40,7 @@ const Search = () => {
             variant="outlined"
             value={inputval}
             onChange={handleChange}
+            autoComplete="off"
           />
           <Button
             sx={{ mt: 15, ml: 1.5 }}
