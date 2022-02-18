@@ -4,7 +4,9 @@ export const dataContext = createContext();
 export const Context = (props) => {
   const [Data, setData] = useState({});
   const [Lyrics, setLyrics] = useState(" Sorry! No Lyrics for this one.");
-
+  const [Message, setMessage] = useState(
+    <div>Enter a song or artist name to find lyrics </div>
+  );
   const [songName, setsongName] = useState("");
   // *************************************************
   //getting suggestions for song or artist name
@@ -66,6 +68,7 @@ export const Context = (props) => {
           [Data, setData],
           [songName, setsongName],
           [Lyrics, setLyrics],
+          [Message, setMessage],
           findLyrics,
         ]}
       >

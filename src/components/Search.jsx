@@ -6,16 +6,20 @@ import { TextField } from "@mui/material";
 import { dataContext } from "../context";
 
 const Search = () => {
-  const [[Data, setData], [songName, setsongName]] = useContext(dataContext);
+  const [[Data, setData], [songName, setsongName], [Message, setMessage]] =
+    useContext(dataContext);
   const [inputval, setinputval] = useState("");
 
   const handleChange = (e) => {
     setinputval(e.target.value);
   };
   const Search = () => {
+    setData([]);
+    setMessage(`Please Wait ....Getting Suggestions`);
     const song = inputval.toString().trim();
     setsongName(song);
     setinputval("");
+    console.log(Message);
   };
   return (
     <>

@@ -15,6 +15,7 @@ const Results = () => {
     [songName, setsongName],
 
     [Lyrics, setLyrics],
+    [Message, setMessage],
     findLyrics,
   ] = useContext(dataContext);
 
@@ -87,7 +88,7 @@ const Results = () => {
             );
           })
         ) : (
-          <div>Enter a song or artist to find lyrics</div>
+          <div>{Message}</div>
         )}
       </Box>
     </>
